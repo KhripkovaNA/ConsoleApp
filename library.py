@@ -43,7 +43,8 @@ class Library:
     def __init__(self, filename: str):
         self.filename = filename
         self.books: List[Book] = self.load_books()
-        Book._counter = self.books[-1].id
+        if self.books:
+            Book._counter = self.books[-1].id
 
     def load_books(self) -> List[Book]:
         """Загружает книги из JSON файла"""

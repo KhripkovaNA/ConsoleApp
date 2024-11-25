@@ -7,6 +7,7 @@ def add_book(library: Library) -> None:
     while True:
         user_input = input("Введите год издания: ")
         if user_input == "отмена":
+            print("Добавление книги отменено")
             break
         else:
             try:
@@ -24,6 +25,7 @@ def update_status(library: Library) -> None:
         if book_id is None:
             user_input = input("Введите ID книги для изменения статуса: ")
             if user_input == "отмена":
+                print("Изменение статуса отменено")
                 break
             else:
                 try:
@@ -32,8 +34,9 @@ def update_status(library: Library) -> None:
                     print("Некорректный ID!")
                     print("Введите корректный ID или введите 'отмена' для возврата в основное меню")
                     continue
-        new_status = input("Введите новый статус: ")
+        new_status = input("Введите новый статус ('в наличии', 'выдана'): ")
         if new_status == "отмена":
+            print("Изменение статуса отменено")
             break
         elif new_status not in ["в наличии", "выдана"]:
             print("Некорректный статус!")
@@ -47,6 +50,7 @@ def search_books(library: Library) -> None:
     while True:
         user_input = input("Поле для поиска (1 - по названию, 2 - по автору, 3 - по году выпуска): ")
         if user_input == "отмена":
+            print("Поиск книг отменен")
             break
         else:
             field_map = {"1": "title", "2": "author", "3": "year"}
@@ -65,6 +69,7 @@ def delete_book(library: Library) -> None:
     while True:
         user_input = input("Введите ID книги для удаления: ")
         if user_input == "отмена":
+            print("Удаление отменено")
             break
         else:
             try:
